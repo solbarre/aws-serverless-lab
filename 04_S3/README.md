@@ -8,13 +8,6 @@ In this module you'll configure Amazon Simple Storage Service (S3) to host the s
 Each of the following sections provide an implementation overview and detailed, step-by-step instructions. The overview should provide enough context for you to complete the implementation if you're already familiar with the AWS Management Console or you want to explore the services yourself without following a walkthrough.
 
 
-### 1. Login to AWS Console
-1. Go to your AWS Console
-
-2. Login as IAM user which have enough privilege
-
-3. Select AWS region: **N. Virginia**
-
 ### 2. Generate the SDK for your API
 
 1. Go to **API Gateway** console
@@ -41,29 +34,23 @@ Each of the following sections provide an implementation overview and detailed, 
 
 ### 3. Integrate with S3 Static Website
 
-- On the **Services** menu, click **S3**
 
-- Click **Create Bucket** 
+-  **Create Bucket** en cli
 
-- Type a bucket name. Note that your bucket name must be unique. 
+- creer fichier website.json pour transformer bucket en website statique et l'integrer cf doc s3 https://docs.aws.amazon.com/cli/latest/reference/s3api/
+{
+    "IndexDocument": {
+        "Suffix": "index.html"
+    }
+}
 
-- For **Region**, click **US East (N.Virginia)**
+5- Rendre le S3 Bucket public
 
-- On **Set Properties**, Click **Next**
+Une commande s3api est a lancer pour rendre le s3 bucket public*
 
-- On **Set permissions**, Click **Next**
+- **Bucket Policy**
 
-- On **Review**, Click **Next**
-
-- Click **Create Bucket**
-
-- Click your bucket to open it
-
-- Click **Permissions** tab
-
-- Click **Bucket Policy**
-
-- Enter the following policy document into the bucket policy editor replacing YOUR\_BUCKET_NAME with the name of the bucket you created:
+6- Créer un fichier policy.json et attacher la policy au bucket S3
 
 ```
 {   
@@ -79,37 +66,16 @@ Each of the following sections provide an implementation overview and detailed, 
 }   
 ```
 
-- Click **Save**
 
-- Click **Properties** tab
+7-publier le contenu statique du site web dans le bucket S3
 
-- Choose **Static website hosting**
-
-- Choose **Use this bucket to host a website**
+copie sur le bucket avec cli s3     l'index.html aura été déplacé dans le dossier dézippé du pack SDK de l'api
 
 - Take a note of **Endpoint** URL (ex. http://mybucket.s3-website-us-east-1.amazonaws.com)
 
-- On Index Document, type **index.html**   
 
 ![Static Website screenshot](../images/enable-website-hosting.png)
 
-- Click **Save**
-
-- Click **Objects** tab
-
-- Click **Upload** (at the top left)
-
-- Click **Add files**
-
-- Open the **apiGateway-js-sdk** folder where you saved the Javascript SDK and index.html
-
-- Upload all files (including subfolder) to S3 bucket. Note that you might need to create subfolder separately in S3 console. You also might consider using:
-	- FTP client (ex. cyberduck, cloudberry, crossftp) 
-	- AWS CLI 
-
-- After you completed the upload, open a new browser tab/window.
-
-- Navigate to the **Endpoint** URL that you copied at previous step.
 `http://<my-unique-bucket-name>.s3-website-us-east-1.amazonaws.com`
 
 - You can now hosting website in S3 to look up data stored in your DynamoDB database using API Gateway and Lambda function.
