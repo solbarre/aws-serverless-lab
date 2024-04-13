@@ -15,36 +15,26 @@ Each of the following sections provide an implementation overview and detailed, 
 
 3. Select AWS region: **N.Virginia**
 
-### 2. Create an Amazon DynamoDB Table
+### 2. Create an Amazon DynamoDB Table en mode cli
 
-1. From the AWS Management Console, choose **Services** then select **DynamoDB** under Databases.
+1. Depuis un serveur ou est installé aws cli 
 
-2. Choose **Create table**.
+2. Creation table dynamoDb avec cli cf doc aws   https://docs.aws.amazon.com/cli/latest/reference/dynamodb/
 
-3. For **Table name**, type `SuperMission`
+3. For **Table name**, type `SuperMission` ou a adapter 
 
 4. For **Primary Key**, type `SuperHero`
 
-5. Under **Table settings**, make sure that **Use default settings** is selected.
-
-6. Click **Create**
-
-7. You will see a status that "Table is being created".
+5. You will see a status that "Table is being created".
 
 8. Once the table creation process is complete, go to **Overview** tab, in **Table details** make a note of your DynamoDB table's **ARN**
  - for example: arn:aws:dynamodb:us-east-1:999999999999:table/SuperMission
 
 ### 3. Insert Amazon DynamoDB Records
 
-- Click the **Items** tab, then click **Create item**.
- 
-- System will pop up new window
- 
-- At the top left of your screen, switch to **Text** mode 
+- En mode cli ajouter les item en type string uniquement
 
-- You will see a text editor. Remove all the placeholder code.
-
-- Copy the code below
+- Adapter le code ci dessous
 
 ```
 {
