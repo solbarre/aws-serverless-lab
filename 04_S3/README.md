@@ -26,12 +26,15 @@ Each of the following sections provide an implementation overview and detailed, 
 
 -  **Create Bucket** en cli
 
-- creer fichier website.json pour transformer bucket en website statique et l'integrer cf doc s3 https://docs.aws.amazon.com/cli/latest/reference/s3api/
+- creer fichier website.json pour transformer bucket en website statique et l'integrer cf doc s3 -
+- https://docs.aws.amazon.com/cli/latest/reference/s3api/
+```
 {
     "IndexDocument": {
         "Suffix": "index.html"
     }
 }
+```
 
 5- Rendre le S3 Bucket public
 
