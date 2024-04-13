@@ -8,21 +8,13 @@ In this module you'll use API Gateway to expose the Lambda function you built in
 Each of the following sections provide an implementation overview and detailed, step-by-step instructions. The overview should provide enough context for you to complete the implementation if you're already familiar with the AWS Management Console or you want to explore the services yourself without following a walkthrough.
 
 
-### 1. Login to AWS Console
-1. Go to your AWS Console
-
-2. Login as IAM user which have enough privilege
-
-3. Select AWS region: **N. Virginia**
-
-
 ### 2. Create a New REST API
 
 1. In the AWS Management Console, click **Services** then select **API Gateway** under Application Services.
 
 1. Choose **Create API**.
 
-1. Select **New API** and enter `SuperHeroes` for the API Name.
+1. Select **New API** and enter `SuperHeroes` for the API Name. (personaliser le nom)
 
 1. Choose **Create API**
 
@@ -34,7 +26,7 @@ Each of the following sections provide an implementation overview and detailed, 
 
 1. From the **Actions** dropdown select **Create Resource**.
 
-1. For **Resource Name**, type `getheroeslist`
+1. For **Resource Name**, type `getheroeslist`  (garder le nom)
 
 1. For **Resource Path**, type `getheroeslist` (this path may be auto-populated for you)
 
@@ -69,6 +61,7 @@ Create a new resource within your API. Then create a POST method for that resour
 1. For **Lambda Function**, select `GetHeroesList`
 
 1. Click **Save**
+2. en mode cli une fois cette étape, il faut configurer la réponse intégration, et la méthode de réponse
 
 1. You will see a warning that you are about to give the API Gateway service permission to invoke your lambda function. Click **OK**.
 
@@ -89,6 +82,10 @@ Create a new resource within your API. Then create a POST method for that resour
 1. You will see the same warning. Click **OK**.
 
 ### 5. Enable CORS
+
+Bien lire la doc https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html
+pour savoir ce qu'il faut ajouter
+Il faudrat aussi mettre à jour la méthode post
 
 You will enable CORS for methods you just created in API Gateway. CORS (Cross-Origin Resource Sharing) allows browsers to make HTTP requests to servers with a different domain/origin. 
 
