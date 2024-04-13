@@ -8,19 +8,9 @@ In this module you'll configure Amazon Simple Storage Service (S3) to host the s
 Each of the following sections provide an implementation overview and detailed, step-by-step instructions. The overview should provide enough context for you to complete the implementation if you're already familiar with the AWS Management Console or you want to explore the services yourself without following a walkthrough.
 
 
-### 2. Generate the SDK for your API
+### 2. Generate the SDK for your API en mode cli
 
-1. Go to **API Gateway** console
-
-1. Click **SuperHeroes** API from the left pane
-
-1. Click **Stages**, and choose **prod**
-
-1. Click **SDK Generation** tab
-
-1. For **Platform**, click **Javascript**
-
-1. Click **Generate SDK**. You will automatically download a ZIP
+1. la commande va download dans le rep courant le package SDK zippé
 
 1. Open the directory (your Downloads folder) and extract the contents of the ZIP to your local computer
 
@@ -28,12 +18,11 @@ Each of the following sections provide an implementation overview and detailed, 
 
 1. Copy the content, save it as  **index.html** to your local computer previously extracted **apiGateway-js sdk** folder
 
-1. Open **index.html** in your browser
+1. Open **index.html** in your browser (a adapter au besoin)
 
 1. Using the index web page, retrieve mission details. Review the output.
 
 ### 3. Integrate with S3 Static Website
-
 
 -  **Create Bucket** en cli
 
@@ -73,8 +62,6 @@ copie sur le bucket avec cli s3     l'index.html aura été déplacé dans le do
 
 - Take a note of **Endpoint** URL (ex. http://mybucket.s3-website-us-east-1.amazonaws.com)
 
-
-![Static Website screenshot](../images/enable-website-hosting.png)
 
 `http://<my-unique-bucket-name>.s3-website-us-east-1.amazonaws.com`
 
